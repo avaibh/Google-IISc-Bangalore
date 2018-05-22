@@ -3,8 +3,7 @@ import sys
 import json
 import urllib.request 
 import requests
-#import str
-
+import hashlib
 r_earth = 6371000
 latitude = 12.877854 
 longitude = 77.625501
@@ -12,7 +11,7 @@ orig_stdout = sys.stdout
 a=1
 sum=0
 for i in range(0,1):
-	file_name = str(a)+".json"
+	file_name = str(a)+".txt"
 	a += 1
 	sys.stdout = open(file_name, "w+")
 	j = 0
@@ -42,7 +41,11 @@ for i in range(0,1):
 	# 	print(data)
 	headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)     Chrome/37.0.2049.0 Safari/537.36'}
 	r = requests.get(api_link, headers=headers)
-	print(r.text)
+	string = r.text
+	placeId_dict = json.loads(string)
+	for snappedPoints in placeId_dict['snappedPoints']:
+		print(snappedPoints['placeId'],'\n')
+
 sys.stdout.close()
 sys.stdout=orig_stdout  
 
