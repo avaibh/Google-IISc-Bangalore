@@ -13,7 +13,7 @@ orig_stdout = sys.stdout
 a=1
 sum=0
 count = 0
-for i in range(0,10000):
+for i in range(0,100):
 	count = count +1 
 	if count%10==0:
 		r_longitude = f_longitude
@@ -39,17 +39,17 @@ for i in range(0,10000):
 		j = j + 1
 		k=0
 		latitude  = latitude - 0.0008993216;
-		# ref =ref + "\n"
+		ref =ref + "\n"
 	ref  =ref[:-1]
 	api_link = "https://roads.googleapis.com/v1/snapToRoads?path="+ref+"&interpolate=true&key=AIzaSyAtyh3XgY8KPHuDygUZfyjL-6SXcGGogw8"
 	headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)     Chrome/37.0.2049.0 Safari/537.36'}
 	r = requests.get(api_link, headers=headers)
 	string = r.text
 	placeId_dict = json.loads(string)
-	# print(ref)
+	print(ref)
 	# print(string)
-	for snappedPoints in placeId_dict['snappedPoints']:
-		print(snappedPoints['placeId'],'\n')
+	# for snappedPoints in placeId_dict['snappedPoints']:
+	# 	print(snappedPoints['placeId'],'\n', end="")
 	sys.stdout.close()
 	sys.stdout=orig_stdout  
 
