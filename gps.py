@@ -52,18 +52,3 @@ for i in range(0,100):
 		print(snappedPoints['placeId'],'\n', end="")
 	sys.stdout.close()
 	sys.stdout=orig_stdout  
-
-	
-# def gpsLocation(latitude, longitude):
-# 	while(j<10):
-# 		while(k<10):	
-# 			k = k + 1
-# 			longitude = longitude + 0.0008993216;
-# 			#print(latitude,",",longitude,"|",sep="",end="")
-# 			if(sum<100):
-# 				ref = ref+str(latitude)+","+str(longitude)+"|"
-# 			sum = sum + 1
-# 		j = j + 1
-# 		k=0
-# 		latitude  = latitude - 0.0008993216;
-# 	return
